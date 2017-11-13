@@ -1,5 +1,8 @@
-#coding=utf-8
-# python 语法
+#!/usr/bin/env python
+# coding=utf-8
+
+
+# c01_python 语法
 
 #1.行和缩进
 #  Python中，不使用括号来表示代码的类和函数定义块或流程控制。
@@ -18,7 +21,7 @@ paragraph = """This is a paragraph. It is made up of multiple
  lines and sentences paragraph = """
 
 #3.注释
-#!/usr/bin/python
+#!/usr/bin/c01_python
 #  This is a comment.
 # This is a comment, too.
 # This is a comment, too.
