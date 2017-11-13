@@ -48,6 +48,48 @@ print "Employee.__dict__:", Employee.__dict__
 
 # 3.类的私有属性
 # __private_attrs：两个下划线开头，声明该属性为私有，不能在类地外部被使用或直接访问。在类内部的方法中使用时 self.__private_attrs
+class JustCounter:
+    __secretCount = 0  # 私有变量
+    publicCount = 0  # 公开变量
+
+    def count(self):
+        self.__secretCount += 1
+        self.publicCount += 1
+        print self.__secretCount
 
 
+counter = JustCounter()
+counter.count()
+counter.count()
+print counter.publicCount
+# print counter.__secretCount  # 报错，实例不能访问私有变量
+# Python不允许实例化的类访问私有数据，但你可以使用 object._className__attrName 访问属性，将如下代码替换以上代码的最后一行代码：
+print counter._JustCounter__secretCount
 
+
+# 4. python 的变量全是全局的 即是 所有对象 共用一个变量 （也就是java 的 静态）
+class MethodTest():
+    count = 0
+    __secretCount = 0  # 私有变量
+
+    def addCount(self):
+        MethodTest.count += 1
+        print "I am an instance method,my count is " + str(MethodTest.count), self
+
+    @staticmethod
+    def staticMethodAdd():
+        MethodTest.count += 1
+        print "I am a static methond,my count is " + str(MethodTest.count)
+
+    @classmethod
+    def classMethodAdd(cls):
+        MethodTest.count += 1
+        print "I am a class method,my count is " + str(MethodTest.count), cls
+
+
+a = MethodTest()
+a.addCount2()
+a.staticMethodAdd()
+MethodTest.staticMethodAdd()
+a.classMethodAdd()
+MethodTest.classMethodAdd()
