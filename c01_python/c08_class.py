@@ -3,24 +3,21 @@
 
 # 1.创建一个类
 class Employee:
-    '所有员工的基类'
     empCount = 0
 
-def __init__(self, name, salary):
-    self.name = name
-    self.salary = salary
-    Employee.empCount += 1
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.empCount += 1
 
-def displayCount(self):
-    print "Total Employee %d" % Employee.empCount
+    def displayCount(self):
+        print "Total Employee %d" % Employee.empCount
 
-def displayEmployee(self):
-    print "Name : ", self.name, ", Salary: ", self.salary
+    def displayEmployee(self):
+        print "Name : ", self.name, ", Salary: ", self.salary
 
 
-"创建 Employee 类的第一个对象"
 emp1 = Employee("Zara", 2000)
-"创建 Employee 类的第二个对象"
 emp2 = Employee("Manni", 5000)
 emp1.displayEmployee()
 emp2.displayEmployee()
@@ -31,10 +28,10 @@ emp1.age = 8  # 修改 'age' 属性
 del emp1.age  # 删除 'age' 属性
 
 # 你也可以使用以下函数的方式来访问属性：
-hasattr(emp1, 'age')  # 如果存在 'age' 属性返回 True。
-getattr(emp1, 'age')  # 返回 'age' 属性的值
-setattr(emp1, 'age', 8)  # 添加属性 'age' 值为 8
-delattr(emp1, 'age')  # 删除属性 'age'
+hasattr(emp1, 'salary')  # 如果存在 'age' 属性返回 True。
+getattr(emp1, 'salary')  # 返回 'age' 属性的值
+setattr(emp1, 'salary', 8)  # 添加属性 'age' 值为 8
+delattr(emp1, 'salary')  # 删除属性 'age'
 
 # 2.内置属性
 # __dict__ : 类的属性（包含一个字典，由类的数据属性组成）
@@ -47,3 +44,10 @@ print "Employee.__name__:", Employee.__name__
 print "Employee.__module__:", Employee.__module__
 print "Employee.__bases__:", Employee.__bases__
 print "Employee.__dict__:", Employee.__dict__
+
+
+# 3.类的私有属性
+# __private_attrs：两个下划线开头，声明该属性为私有，不能在类地外部被使用或直接访问。在类内部的方法中使用时 self.__private_attrs
+
+
+
