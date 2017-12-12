@@ -16,7 +16,7 @@ print food_info.columns
 print food_info.shape
 print food_info.head(5)
 print food_info.loc[5]
-print food_info.loc[5,"Shrt_Desc"]
+print food_info.loc[5, "Shrt_Desc"]
 print food_info.loc[[2, 5, 10]]
 # print  food_info
 
@@ -83,7 +83,9 @@ print correct_mean_age
 correct_mean_age = titanic_survival["Age"].mean()
 print correct_mean_age
 
-# mean fare for each class
+# 3.分组求平均数,和
+
+# 平均票价原始代码
 passenger_classes = [1, 2, 3]
 fares_by_class = {}
 for this_class in passenger_classes:
@@ -93,11 +95,11 @@ for this_class in passenger_classes:
     fares_by_class[this_class] = fare_for_class
 print fares_by_class
 
-# 3.分组求平均数,和
+# 平均票价 pandas 提供方法  pivot_table
 # index tells the method which column to group by
 # values is the column that we want to apply the calculation to
 # aggfunc specifies the calculation we want to perform
-passenger_survival = titanic_survival.pivot_table(index="Pclass", values="Survived", aggfunc=np.mean)
+passenger_survival = titanic_survival.pivot_table(index="Pclass", values="Fare", aggfunc=np.mean)
 print passenger_survival
 
 passenger_age = titanic_survival.pivot_table(index="Pclass", values="Survived")
@@ -106,20 +108,8 @@ print(passenger_age)
 port_stats = titanic_survival.pivot_table(index="Embarked", values=["Fare", "Survived"], aggfunc=np.sum)
 print(port_stats)
 
-#4.过滤 某些 为null 的数据
-# specifying axis=1 or axis='columns' will drop any columns that have null values
-drop_na_columns = titanic_survival.dropna(axis=1)
-new_titanic_survival = titanic_survival.dropna(axis=0, subset=["Age", "Sex"])
-print new_titanic_survival
 
-# 5 重新排序，不改变原来数据的顺序
-new_titanic_survival = titanic_survival.sort_values("Age",ascending=False)
-print new_titanic_survival[0:10]
-
-titanic_reindexed = new_titanic_survival.reset_index(drop=True)
-print (titanic_reindexed.iloc[0:10])
-
-# 6.自定义方法
+# 4.自定义方法
 # This function returns the hundredth item from a series
 def which_class(row):
     pclass = row['Pclass']
@@ -135,3 +125,17 @@ def which_class(row):
 classes = titanic_survival.apply(which_class, axis=1)
 print classes
 # print which_class(titanic_survival) 错误，不能直接调用
+
+
+# 5.过滤 某些 为null 的数据
+# specifying axis=1 or axis='columns' will drop any columns that have null values
+drop_na_columns = titanic_survival.dropna(axis=1)
+new_titanic_survival = titanic_survival.dropna(axis=0, subset=["Age", "Sex"])
+print new_titanic_survival
+
+# 5. 重新排序，不改变原来数据的顺序
+new_titanic_survival = titanic_survival.sort_values("Age", ascending=False)
+print new_titanic_survival[0:10]
+
+titanic_reindexed = new_titanic_survival.reset_index(drop=True)
+print (titanic_reindexed.iloc[0:10])
