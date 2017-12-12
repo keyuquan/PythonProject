@@ -16,10 +16,13 @@ print food_info.columns
 print food_info.shape
 print food_info.head(5)
 print food_info.loc[5]
+print food_info.loc[5,"Shrt_Desc"]
 print food_info.loc[[2, 5, 10]]
 # print  food_info
 
 # 注意： 这两个方法 获取的返回值不一样
+# pandas.core.frame.DataFrame ，带源数据，相当于 spark的  DataFrame
+# pandas.core.series.Series  ，不带源数据，相当于 spark的 rdd
 se1 = food_info[[food_info.columns[0]]]
 se2 = food_info[food_info.columns[0]]
 print  type(se1)  # pandas.core.frame.DataFrame
@@ -42,25 +45,93 @@ print food_info["Sodium_(mg)"]
 food_info.sort_values("Sodium_(mg)", inplace=True, ascending=False)
 print food_info["Sodium_(mg)"]
 
-# 2. isnull 不是数据类型数据的处理
+# 2. 求平均数
 titanic_survival = pd.read_csv("titanic_train.csv")
 age = titanic_survival["Age"]
-print  type(age), age.dtypes #pandas.core.series.Series
+print  type(age), age.dtypes  # pandas.core.series.Series ,float64
 
-age_is_null = pd.isnull(age)
-print age_is_null
-print  type(age_is_null), age_is_null.dtype
-
-age_null_true = age[age_is_null]
-print age_null_true
-age_null_count = len(age_null_true)
-print(age_null_count)
-
+# 问题：  当存在 非数字数据的时候，运算结果是 NAN
 mean_age = sum(titanic_survival["Age"]) / len(titanic_survival["Age"])
 print mean_age
 
+# i.原始代码
+# 分步代码
+age_is_null = pd.isnull(age)
+print age_is_null
+print  type(age_is_null), age_is_null.dtype  # <class 'pandas.core.series.Series'> bool
+
+age_null_true = age[-age_is_null]  # 所有不是null 的数据 当是 true 的时候，取该数据，当是 false 时，不取该数据
+print age_null_true
+print  type(age_null_true), age_null_true.dtype  # <class 'pandas.core.series.Series'> float64
+
+age_null_count = len(age_null_true)
+print(age_null_count)
+
+# 整合后的代码
+age_null_true = titanic_survival["Age"][-pd.isnull(titanic_survival["Age"])]  # 所有不是null 的数据
+mean_age1 = sum(age_null_true) / len(age_null_true)
+print mean_age1
+
+# ii. pandas提供的api
 # we have to filter out the missing values before we calculate the mean.
 good_ages = titanic_survival["Age"][age_is_null == False]
 # print good_ages
 correct_mean_age = sum(good_ages) / len(good_ages)
 print correct_mean_age
+
+# iii. pandas提供的方法 mean，已经过滤 非数字数据
+correct_mean_age = titanic_survival["Age"].mean()
+print correct_mean_age
+
+# mean fare for each class
+passenger_classes = [1, 2, 3]
+fares_by_class = {}
+for this_class in passenger_classes:
+    pclass_rows = titanic_survival[titanic_survival["Pclass"] == this_class]
+    pclass_fares = pclass_rows["Fare"]
+    fare_for_class = pclass_fares.mean()
+    fares_by_class[this_class] = fare_for_class
+print fares_by_class
+
+# 3.分组求平均数,和
+# index tells the method which column to group by
+# values is the column that we want to apply the calculation to
+# aggfunc specifies the calculation we want to perform
+passenger_survival = titanic_survival.pivot_table(index="Pclass", values="Survived", aggfunc=np.mean)
+print passenger_survival
+
+passenger_age = titanic_survival.pivot_table(index="Pclass", values="Survived")
+print(passenger_age)
+
+port_stats = titanic_survival.pivot_table(index="Embarked", values=["Fare", "Survived"], aggfunc=np.sum)
+print(port_stats)
+
+#4.过滤 某些 为null 的数据
+# specifying axis=1 or axis='columns' will drop any columns that have null values
+drop_na_columns = titanic_survival.dropna(axis=1)
+new_titanic_survival = titanic_survival.dropna(axis=0, subset=["Age", "Sex"])
+print new_titanic_survival
+
+# 5 重新排序，不改变原来数据的顺序
+new_titanic_survival = titanic_survival.sort_values("Age",ascending=False)
+print new_titanic_survival[0:10]
+
+titanic_reindexed = new_titanic_survival.reset_index(drop=True)
+print (titanic_reindexed.iloc[0:10])
+
+# 6.自定义方法
+# This function returns the hundredth item from a series
+def which_class(row):
+    pclass = row['Pclass']
+    if pd.isnull(pclass):
+        return "Unknown"
+    elif pclass == 1:
+        return "First Class"
+    elif pclass == 2:
+        return "Second Class"
+    elif pclass == 3:
+        return "Third Class"
+
+classes = titanic_survival.apply(which_class, axis=1)
+print classes
+# print which_class(titanic_survival) 错误，不能直接调用
