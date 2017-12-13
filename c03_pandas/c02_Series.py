@@ -61,7 +61,7 @@ print  series_custom.mean()
 print  series_custom.max()
 print  series_custom.min()
 
-# 5. series 可以直接根据值 过滤数据
+# 5. series 的参数可以是 根据值确定的boolean 值，false 则过滤掉
 series_greater_than_50 = series_custom[series_custom > 50]
 both_criteria_xiaoyu_75 = series_custom[series_custom < 75]
 both_criteria = series_custom[(series_custom > 50) & (series_custom < 75)]
@@ -70,6 +70,9 @@ print  len(series_custom)
 print  len(series_greater_than_50)
 print  len(both_criteria_xiaoyu_75)
 print  len(both_criteria)
+
+age_null_true = fandango["RottenTomatoes"][-pd.isnull(fandango["RottenTomatoes"])]  # 所有不是null 的数据
+mean_age1 = sum(age_null_true) / len(age_null_true)
 
 series_one = series_custom[['Minions (2015)', 'Leviathan (2014)']]
 series_two = series_custom[[0, 5]]
