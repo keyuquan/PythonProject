@@ -17,7 +17,7 @@ https://www.continuum.io/downloads
   
 2.  windows 
     * windows 运行  jupter  notebook
-    * 交互式窗口  anaconda propt    conda list  查看库
+    * 交互式窗口  anaconda prompt   
    
 
 ## 二.代码简介
