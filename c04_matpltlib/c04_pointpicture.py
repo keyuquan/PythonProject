@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
 import matplotlib.pyplot as plt
-from numpy import arange
 import pandas as pd
 
 # 点状图
