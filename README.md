@@ -27,3 +27,5 @@ https://www.continuum.io/downloads
 * c04_matpltlib     matpltlib 数据可视化库
 * c05_seaborn       seaborn 数据可视化库
 * c06_scripy        scripy 爬虫库
+* c07_algorithm     算法
+* c08_recommend     推荐系统
