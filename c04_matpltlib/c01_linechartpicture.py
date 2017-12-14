@@ -17,7 +17,7 @@ first_twelve = unrate[0:12]
 second_twelve = unrate[12:24]
 
 plt.figure(figsize=(10, 6))  # 画布大小
-plt.plot(first_twelve['DATE'].dt.month, first_twelve['VALUE'], c='red', label="1948")  # x.y 坐标的值,颜色，折线标注
+plt.plot(first_twelve['DATE'].dt.month, first_twelve['VALUE'], c='red', label="1948")  # x.y 坐标的值，颜色，折线标注  决定画折线图
 plt.plot(second_twelve['DATE'].dt.month, second_twelve['VALUE'], c='blue', label="1949")
 plt.legend(loc='upper left')  # 折线标注的位置
 plt.xticks(rotation=90)  # 字体倾斜度

@@ -18,7 +18,7 @@ first_twelve = unrate[0:12]
 second_twelve = unrate[12:24]
 
 fig = plt.figure()
-ax1 = fig.add_subplot(2, 2, 1)  # 分成 3 列 2行 ， 取第 1 个 图
+ax1 = fig.add_subplot(2, 2, 1)  # 分成 3 列 2行 ， 取第 1 个 图，决定画 组图
 ax1.plot(first_twelve['DATE'], first_twelve['VALUE'])
 
 ax2 = fig.add_subplot(2, 2, 2)
