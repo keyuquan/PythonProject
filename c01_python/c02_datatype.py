@@ -41,7 +41,6 @@ print(list)
 
 # 4.元组
 tuple = ('abcd', 786, 2.23, 'john', 70.2)
-tuple = ('abcd', 786, 2.23, 'john', 70.2)
 tinytuple = (123, 'john')
 
 print tuple  # 打印整个元组
