@@ -19,6 +19,7 @@ print food_info.columns
 print food_info.shape
 print food_info.head(5)
 print food_info.loc[5]
+print food_info.ix[5]
 print food_info.loc[5, "Shrt_Desc"]
 print food_info.loc[[2, 5, 10]]
 # print  food_info
