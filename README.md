@@ -21,9 +21,9 @@ https://www.continuum.io/downloads
    
 
 ## 二.代码简介
-* c01_python  python 基础
-* c02_numpy   numpy  科学计算库
-* c03_pandas  pandas 数据分析库
-* c04_matpltlib  matpltlib 数据可视化库
-* c05_seaborn  seaborn 数据可视化库
-* c06_scripy    scripy 爬虫库
+* c01_python        python 基础
+* c02_numpy         numpy 科学计算库
+* c03_pandas        pandas 数据分析库
+* c04_matpltlib     matpltlib 数据可视化库
+* c05_seaborn       seaborn 数据可视化库
+* c06_scripy        scripy 爬虫库
