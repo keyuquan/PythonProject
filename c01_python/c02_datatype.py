@@ -13,7 +13,6 @@ print miles
 print name
 
 # 2.字符串
-str = 'Hello World!'
 str = 'Hello World!'  # 字符串在python中本质上是一个字符序列Seq
 
 print str  # 打印整个字符串
@@ -24,7 +23,6 @@ print str * 2  # 字符串重复2次
 print str + "TEST"  # 字符串拼接
 
 # 3.列表
-list = ['abcd', 786, 2.23, 'john', 70.2]
 list = ['abcd', 786, 2.23, 'john', 70.2]
 tinylist = [123, 'john']
 
