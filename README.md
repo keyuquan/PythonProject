@@ -30,3 +30,11 @@ https://www.continuum.io/downloads
 * c07_machinelearn  机器学习相关算法
   * c01_regression   回归
 * c08_recommend     推荐系统
+
+##三.算法相关数学知识
+* 排列组合 
+>  https://jingyan.baidu.com/article/63acb44ac60d4e61fcc17e2e.html
+* 二项式分布
+> https://baike.baidu.com/item/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83/1442377?fr=aladdin&fromid=3565421&fromtitle=%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%88%86%E5%B8%83
+* 正态分布
+> https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83&rsv_spt=1&oq=%25E6%2599%25BA%25E8%2581%2594&rsv_pq=d208ecf600049ed1&rsv_t=e900CBzvOlNi08HwZYqwb%2Bz%2BKObaP3wvIVvLbtfgqW3T22p1%2BE7STpfsK9x4sw%2Bf4yEO&rqlang=cn&rsv_enter=1&inputT=7892&rsv_sug3=19&rsv_sug1=18&rsv_sug7=101&rsv_sug2=0&rsv_sug4=9506&rsv_sug=1
