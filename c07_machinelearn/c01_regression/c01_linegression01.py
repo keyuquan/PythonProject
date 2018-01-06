@@ -21,7 +21,7 @@ class LinearRegression():
         X_ = np.linalg.inv(X.T.dot(X))
         self.w = X_.dot(X.T).dot(y)
 
-    #  根据直线关系 和 测试数据的 X z坐标，求出理论的 Y 坐标
+    #  根据直线关系 和 测试数据的 X 坐标，求出理论的 Y 坐标
     def predict(self, X):
         X = np.insert(X, 0, 10, axis=1)
         y_pred = X.dot(self.w)
