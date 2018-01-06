@@ -15,13 +15,13 @@ class LinearRegression():
     def __init__(self):
         self.w = None
 
-    # 选择一条线 给先验数据分类 ： 核心方法
+    # 训练数据： 找出 x y 最合适的关系
     def fit(self, X, y):
         X = np.insert(X, 0, 10, axis=1)
         X_ = np.linalg.inv(X.T.dot(X))
         self.w = X_.dot(X.T).dot(y)
 
-    #  根据直线关系 和 测试数据的 X 坐标，求出理论的 Y 坐标
+    # 预测数据： 根据 x 和训练的数据  预测 y
     def predict(self, X):
         X = np.insert(X, 0, 10, axis=1)
         y_pred = X.dot(self.w)
