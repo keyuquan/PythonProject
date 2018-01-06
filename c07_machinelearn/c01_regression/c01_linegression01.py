@@ -21,7 +21,7 @@ class LinearRegression():
         X_ = np.linalg.inv(X.T.dot(X))
         self.w = X_.dot(X.T).dot(y)
 
-    # 预测数据： 根据 x 和训练的数据  预测 y
+    # 预测数据： 根据 x 和训练的数据关系  预测 y
     def predict(self, X):
         X = np.insert(X, 0, 10, axis=1)
         y_pred = X.dot(self.w)
