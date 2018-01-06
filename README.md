@@ -31,7 +31,7 @@ https://www.continuum.io/downloads
   * c01_regression   回归
 * c08_recommend     推荐系统
 
-##三.算法相关数学知识
+## 三.算法相关数学知识
 * 排列组合 
 >  https://jingyan.baidu.com/article/63acb44ac60d4e61fcc17e2e.html
 * 二项式分布
