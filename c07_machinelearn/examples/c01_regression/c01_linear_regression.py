@@ -2,61 +2,54 @@
 # encoding: utf-8
 
 import matplotlib.pyplot as plt
-import numpy as np
-from sklearn import datasets
+from sklearn.datasets import make_regression
 
-# line regression 线性回归
-# 回归 : 在统计学中，回归分析（regression analysis)指的是确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。
-# 场景 ： datasets.load_diabetes()  生成内置的数据集（datasets 内置很多默认的数据集）
-# 需求 ： 根据两个属性给数据分类
-# 局限性 ：只给两个属性的数据分类，具有局限性
-
-class LinearRegression():
-    def __init__(self):
-        self.w = None
-
-    # 训练数据： 找出 x y 最合适的关系
-    def fit(self, X, y):
-        X = np.insert(X, 0, 10, axis=1)
-        X_ = np.linalg.inv(X.T.dot(X))
-        self.w = X_.dot(X.T).dot(y)
-
-    # 预测数据： 根据 x 和训练的数据关系  预测 y
-    def predict(self, X):
-        X = np.insert(X, 0, 10, axis=1)
-        y_pred = X.dot(self.w)
-        return y_pred
-
-
-# 实际 Y  和 理论 Y 算出的 差距 平方 的平均值:  方差
-def mean_squared_error(y_true, y_pred):
-    mse = np.mean(np.power(y_true - y_pred, 2))
-    return mse
+from c07_machinelearn.mlfromscratch.supervised_learning import LinearRegression
+from c07_machinelearn.mlfromscratch.utils import mean_squared_error
+from c07_machinelearn.mlfromscratch.utils import train_test_split
 
 
 def main():
-    # Load the diabetes dataset
-    diabetes = datasets.load_diabetes()
+    # python 的 mlfromscratch 模块 自带的 生成数据集的 方法  :  n_samples:数据个数 n_features：数据特征数 noise：方差
+    # 形成的数据格式：data（ndarray:shape=(100,1)）-> labels（ndarray:shape=(100,)）
+    X, y = make_regression(n_samples=100, n_features=1, noise=20)
 
-    # 选取其中两个属性
-    X = diabetes.data[:, np.newaxis, 2]
-    Y = diabetes.data[:, np.newaxis, 3]
+    # 把数据分成 训练数据和 验证数据
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
 
-    # 把数据分为 训练数据（先验数据，用于确定模型） 和 测试数据（测试模型的准确性）
-    x_train, x_test = X[:-20], X[-20:]
-    y_train, y_test = Y[:-20], Y[-20:]
+    model = LinearRegression(n_iterations=100)
 
-    clf = LinearRegression()
-    clf.fit(x_train, y_train)
-    y_pred = clf.predict(x_test)
+    model.fit(X_train, y_train)
 
-    # Print the mean squared error 打印均方误差
-    print ("Mean Squared Error:", mean_squared_error(y_test, y_pred))
+    # Training error plot
+    n = len(model.training_errors)
+    training, = plt.plot(range(n), model.training_errors, label="Training Error")
+    plt.legend(handles=[training])
+    plt.title("Error Plot")
+    plt.ylabel('Mean Squared Error')
+    plt.xlabel('Iterations')
+    plt.show()
+
+    y_pred = model.predict(X_test)
+    mse = mean_squared_error(y_test, y_pred)
+    print ("Mean squared error: %s" % (mse))
+
+    y_pred_line = model.predict(X)
+
+    # Color map
+    cmap = plt.get_cmap('viridis')
 
     # Plot the results
-    plt.scatter(x_test, y_test, color='black')
-    plt.plot(x_test, y_pred, color='blue', linewidth=3)
+    m1 = plt.scatter(366 * X_train, y_train, color=cmap(0.9), s=10)
+    m2 = plt.scatter(366 * X_test, y_test, color=cmap(0.5), s=10)
+    plt.plot(366 * X, y_pred_line, color='black', linewidth=2, label="Prediction")
+    plt.suptitle("Linear Regression")
+    plt.title("MSE: %.2f" % mse, fontsize=10)
+    plt.xlabel('Day')
+    plt.ylabel('Temperature in Celcius')
+    plt.legend((m1, m2), ("Training data", "Test data"), loc='lower right')
     plt.show()
 
 
-main()
+if __name__ == "__main__":
+    main()
