@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# encoding: utf-8
+
 import numpy as np
 
 # Collection of activation functions

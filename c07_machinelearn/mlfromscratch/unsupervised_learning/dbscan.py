@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# encoding: utf-8
+
 from __future__ import print_function, division
 import numpy as np
 from mlfromscratch.utils import Plot, euclidean_distance, normalize

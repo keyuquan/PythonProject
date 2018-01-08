@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# encoding: utf-8
 import numpy as np
 from mlfromscratch.utils import make_diagonal, normalize
 

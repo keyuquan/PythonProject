@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# encoding: utf-8
+
 import logging
 import numpy as np
 import progressbar
