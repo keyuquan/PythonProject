@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets
 
-
 # line regression 线性回归
+# 回归 : 在统计学中，回归分析（regression analysis)指的是确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。
 # 场景 ： datasets.load_diabetes()  生成内置的数据集（datasets 内置很多默认的数据集）
 # 需求 ： 根据两个属性给数据分类
 # 局限性 ：只给两个属性的数据分类，具有局限性
