@@ -18,7 +18,7 @@ def main():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
     # 线性回归的 源码类
-    model = LinearRegression(n_iterations=1000)
+    model = LinearRegression(n_iterations=100)
 
     # 训练数据
     model.fit(X_train, y_train)
