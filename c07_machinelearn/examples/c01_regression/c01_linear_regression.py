@@ -14,11 +14,13 @@ def main():
     # 形成的数据格式：data（ndarray:shape=(100,1)）-> labels（ndarray:shape=(100,)）
     X, y = make_regression(n_samples=100, n_features=1, noise=20)
 
-    # 把数据分成 训练数据和 验证数据
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+    # 把数据分成 训练数据和 测试数据
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
-    model = LinearRegression(n_iterations=100)
+    # 线性回归的 源码类
+    model = LinearRegression(n_iterations=1000)
 
+    # 训练数据
     model.fit(X_train, y_train)
 
     # Training error plot
