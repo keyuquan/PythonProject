@@ -19,11 +19,13 @@ def main():
 
     # LinearRegression： 线性回归的 源码类
     # n_iterations: 循环多少次,减小,则运算量减小
-    # learning_rate: 每次循环 w 和 e 进行相应放大后 改变的 百分比
+    # learning_rate: 每次循环 w 和 e 进行相应放大后 改变的 百分比;
+    # 由推导公式 y=k1*x1+k2*x2+..+E ; E 为正太分布公式； 假设 E最小的情况下,求使y的差距和最小的k 值；所以 learning_rate的改变
+    # 决定了  权重和 E（假设最小值） 的改变
     # 要多次尝试 找出最合适的 n_iterations  和 learning_rate （当数据平缓时就是最佳值）
     # 一般情况下 learning_rate=1/n_samples*10  数据找到最佳值比较快
 
-    model = LinearRegression(n_iterations=100, learning_rate=.1/1000)
+    model = LinearRegression(n_iterations=100, learning_rate=.1 / 1000)
 
     # 训练数据
     model.fit(X_train, y_train)
