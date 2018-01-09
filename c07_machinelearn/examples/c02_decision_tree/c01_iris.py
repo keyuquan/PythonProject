@@ -19,7 +19,6 @@ iris_data.head()
 k=sns.pairplot(iris_data.dropna(), hue='class')
 plt.show()
 
-
 plt.figure(figsize=(10, 10))
 for column_index, column in enumerate(iris_data.columns):
     if column == 'class':
