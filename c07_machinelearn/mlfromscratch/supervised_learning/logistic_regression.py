@@ -14,10 +14,10 @@ class LogisticRegression():
     -----------
     learning_rate: float
         The step length that will be taken when following the negative gradient during
-        training.
+        training.     训练步长
     gradient_descent: boolean
         True or false depending if gradient descent should be used when training. If 
-        false then we use batch optimization by least squares.
+        false then we use batch optimization by least squares. 是否使用梯度下降
     """
     def __init__(self, learning_rate=.1, gradient_descent=True):
         self.param = None

@@ -77,7 +77,7 @@ class Regression(object):
         self.training_errors = []
         self.initialize_weights(n_features=X.shape[1])
         # Do gradient descent for n_iterations
-        for _ in range(self.n_iterations):
+        for k in range(self.n_iterations):
             y_pred = X.dot(self.w)
             # Calculate l2 loss
             mse = np.mean(0.5 * (y - y_pred) ** 2 + self.regularization(self.w))
@@ -99,16 +99,14 @@ class LinearRegression(Regression):
     Parameters:
     -----------
     n_iterations: float
-        The number of training iterations the algorithm will tune the weights for.
-		算法将调整权重的训练迭代次数。
+        The number of training iterations the algorithm will tune the weights for.(算法将调整权重的训练迭代次数)
     learning_rate: float
-        The step length that will be used when updating the weights.
-		更新权重时将使用的步长。
+        The step length that will be used when updating the weights.(更新权重时将使用的步长)
+
     gradient_descent: boolean
+
         True or false depending if gradient descent should be used when training. If
-        false then we use batch optimization by least squares.
-         如果训练时应使用梯度下降，则为真或假。 如果
-         假然后我们使用最小二乘法进行批量优化。
+        false then we use batch optimization by least squares.(是否使用梯度下降，如果不使用的话 就是随机权重，数据误差很大)
     """
 
     def __init__(self, n_iterations=100, learning_rate=0.001, gradient_descent=True):
