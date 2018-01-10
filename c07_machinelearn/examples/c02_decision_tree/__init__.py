@@ -18,6 +18,21 @@
 7.随机森林： 就是通过随机选择数据多次建树 形成多棵树,避免极特殊数据的影响
 
 三.决策数参数讲解
+ def __init__(self,
+                 criterion="gini",
+                 splitter="best",
+                 max_depth=None,
+                 min_samples_split=2,
+                 min_samples_leaf=1,
+                 min_weight_fraction_leaf=0.,
+                 max_features=None,
+                 random_state=None,
+                 max_leaf_nodes=None,
+                 min_impurity_decrease=0.,
+                 min_impurity_split=None,
+                 class_weight=None,
+                 presort=False):
+
 1.criterion  gini  or  entropy
 
 2.splitter  best or random 前者是在所有特征中找最好的切分点 后者是在部分特征中（数据量大的时候）
