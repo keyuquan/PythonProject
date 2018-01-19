@@ -24,7 +24,6 @@ def main():
 
     clf = ClassificationTree()
     clf.fit(X_train, y_train)
-    tree.export_graphviz(clf, out_file= open("tree_iris.dot", 'w'))
 
     y_pred = clf.predict(X_test)
 
