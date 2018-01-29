@@ -9,7 +9,7 @@ from c07_machinelearn.mlfromscratch.utils import Plot
 from c07_machinelearn.mlfromscratch.utils import train_test_split, accuracy_score
 
 """
-根据，身高，体重，腰围 三项数据训练模型，并预测某人胖瘦
+根据，身高，体重，腰围 三项数据训练模型，并预测某人胖瘦(python 自带的 决策树 )
 """
 def main():
     body_info = pd.read_csv("BodyType.csv")
