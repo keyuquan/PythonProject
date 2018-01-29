@@ -27,7 +27,7 @@ print food_info.loc[[2, 5, 10]]
 # 注意： 这两个方法 获取的返回值不一样
 # pandas.core.frame.DataFrame ，带源数据，相当于 spark的  DataFrame
 # pandas.core.series.Series  ，键值对形式的存在，默认键 是 自定义的角标
-se1 = food_info[[food_info.columns[0]]]
+se1 = food_info[[food_info.columns[0],food_info.columns[1]]]
 se2 = food_info[food_info.columns[0]]
 print  type(se1)  # pandas.core.frame.DataFrame
 print  type(se2)  # pandas.core.series.Series
