@@ -11,6 +11,22 @@ from c07_machinelearn.mlfromscratch.utils import train_test_split, accuracy_scor
 """
 根据，身高，体重，腰围 三项数据训练模型，并预测某人胖瘦(python 自带的 决策树 )
 """
+
+
+def storeTree(inputTree, filename):
+    import json
+    fw = open(filename, 'w')  # 只需要'w'
+    fw.write(json.dumps(inputTree))
+    fw.close()
+
+
+def grabTree(filename):
+    import json
+    fr = open(filename, 'r')  # 只需要'r'
+    data = json.loads(fr.read())
+    fr.close()
+    return data
+
 def main():
     body_info = pd.read_csv("BodyType.csv")
     X = np.array(body_info[[body_info.columns[0], body_info.columns[1], body_info.columns[2]]])
@@ -21,12 +37,19 @@ def main():
     clf = tree.DecisionTreeClassifier(criterion='entropy')
     x_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2)
     clf.fit(x_train, y_train)
+    # 保存决策树
+    tree.export_graphviz(clf, out_file=open("tree.dot", 'w'))
+
+    # 读取决策树
+
+
+    # 训练模型
     y_pred = clf.predict(X_test)
 
     # 准确率
     accuracy = accuracy_score(y_test, y_pred)
     print("Accuracy:", accuracy)
-    Plot().plot_in_3d(X_test, y=y_pred)
+    # Plot().plot_in_3d(X_test, y=y_pred)
 
 if __name__ == "__main__":
     main()
