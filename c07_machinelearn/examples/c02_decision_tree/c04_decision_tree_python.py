@@ -14,7 +14,7 @@ from c07_machinelearn.mlfromscratch.utils import train_test_split, accuracy_scor
 def main():
     body_info = pd.read_csv("BodyType.csv")
     X = np.array(body_info[[body_info.columns[0], body_info.columns[1], body_info.columns[2]]])
-    labels = np.array(body_info[body_info.columns[3]])
+    labels = np.array(body_info[body_info.columns[3]]).T
     Y = np.zeros(labels.shape[0])
     Y[labels == 'fat'] = 1
 
