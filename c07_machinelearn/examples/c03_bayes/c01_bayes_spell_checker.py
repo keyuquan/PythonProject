@@ -41,7 +41,6 @@ def correct(word, NWORDS):
 
 def main():
     NWORDS = train(words(open('big.txt').read()))
-    c=edits1("chas")
     print(correct("chas", NWORDS))
 
 
