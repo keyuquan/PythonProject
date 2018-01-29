@@ -49,7 +49,7 @@ def main():
     # 准确率
     accuracy = accuracy_score(y_test, y_pred)
     print("Accuracy:", accuracy)
-    # Plot().plot_in_3d(X_test, y=y_pred)
+    Plot().plot_in_3d(X_test, y=y_pred)
 
 if __name__ == "__main__":
     main()
