@@ -13,24 +13,10 @@ from c07_machinelearn.mlfromscratch.utils import train_test_split, accuracy_scor
 """
 
 
-def storeTree(inputTree, filename):
-    import json
-    fw = open(filename, 'w')  # 只需要'w'
-    fw.write(json.dumps(inputTree))
-    fw.close()
-
-
-def grabTree(filename):
-    import json
-    fr = open(filename, 'r')  # 只需要'r'
-    data = json.loads(fr.read())
-    fr.close()
-    return data
-
 def main():
     body_info = pd.read_csv("BodyType.csv")
     X = np.array(body_info[[body_info.columns[0], body_info.columns[1], body_info.columns[2]]])
-    labels = np.array(body_info[body_info.columns[3]]).T
+    labels = np.array(body_info[body_info.columns[3]])
     Y = np.zeros(labels.shape[0])
     Y[labels == 'fat'] = 1
 
