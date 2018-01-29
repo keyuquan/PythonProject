@@ -20,7 +20,7 @@ def main():
     print("-- Regression Tree --")
 
     # Load temperature data
-    data = pd.read_csv('/home/kequan/workspace/ML-From-Scratch-master/mlfromscratch/data/TempLinkoping2016.txt',
+    data = pd.read_csv('TempLinkoping.txt',
                        sep="\t")
 
     time = np.atleast_2d(data["time"].as_matrix()).T

@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 from sklearn import datasets
-from sklearn import tree
 
 from c07_machinelearn.mlfromscratch.supervised_learning import ClassificationTree
 from c07_machinelearn.mlfromscratch.utils import Plot
