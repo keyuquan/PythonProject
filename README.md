@@ -44,7 +44,6 @@ https://www.continuum.io/downloads
 * c06_scripy          scripy 爬虫库
 * c07_machinelearn    机器学习相关算法
   * examples          案例
-    * c01_regression  回归
   * mlfromscratch     python机器学习和深度学习的算法代码
 * c08_recommend       推荐系统
 
