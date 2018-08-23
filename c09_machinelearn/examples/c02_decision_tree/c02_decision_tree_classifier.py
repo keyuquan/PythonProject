@@ -3,9 +3,9 @@
 
 from sklearn import datasets
 
-from c07_machinelearn.mlfromscratch.supervised_learning import ClassificationTree
-from c07_machinelearn.mlfromscratch.utils import Plot
-from c07_machinelearn.mlfromscratch.utils import train_test_split, accuracy_score
+from c09_machinelearn.mlfromscratch.supervised_learning import ClassificationTree
+from c09_machinelearn.mlfromscratch.utils import Plot
+from c09_machinelearn.mlfromscratch.utils import train_test_split, accuracy_score
 
 """
 使用自己定义的决策数训练数据,预测数据类型（标签）的决策树

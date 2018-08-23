@@ -6,9 +6,9 @@
 
 from __future__ import print_function
 
-from c07_machinelearn.mlfromscratch.supervised_learning import LogisticRegression
-from c07_machinelearn.mlfromscratch.utils import Plot
-from c07_machinelearn.mlfromscratch.utils import normalize, train_test_split, accuracy_score
+from c09_machinelearn.mlfromscratch.supervised_learning import LogisticRegression
+from c09_machinelearn.mlfromscratch.utils import Plot
+from c09_machinelearn.mlfromscratch.utils import normalize, train_test_split, accuracy_score
 from sklearn import datasets
 
 

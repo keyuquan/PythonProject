@@ -4,9 +4,9 @@
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_regression
 
-from c07_machinelearn.mlfromscratch.supervised_learning import LinearRegression
-from c07_machinelearn.mlfromscratch.utils import mean_squared_error
-from c07_machinelearn.mlfromscratch.utils import train_test_split
+from c09_machinelearn.mlfromscratch.supervised_learning import LinearRegression
+from c09_machinelearn.mlfromscratch.utils import mean_squared_error
+from c09_machinelearn.mlfromscratch.utils import train_test_split
 
 
 def main():

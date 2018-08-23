@@ -5,8 +5,8 @@ from __future__ import division, print_function
 import numpy as np
 import pandas as pd
 from sklearn import tree
-from c07_machinelearn.mlfromscratch.utils import Plot
-from c07_machinelearn.mlfromscratch.utils import train_test_split, accuracy_score
+from c09_machinelearn.mlfromscratch.utils import Plot
+from c09_machinelearn.mlfromscratch.utils import train_test_split, accuracy_score
 
 """
 根据，身高，体重，腰围 三项数据训练模型，并预测某人胖瘦(python 自带的 决策树 )

@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Import helper functions
-from c07_machinelearn.mlfromscratch.utils.data_operation import mean_squared_error
-from c07_machinelearn.mlfromscratch.utils.data_manipulation import train_test_split
-from c07_machinelearn.mlfromscratch.supervised_learning import BayesianRegression
+from c09_machinelearn.mlfromscratch.utils.data_operation import mean_squared_error
+from c09_machinelearn.mlfromscratch.utils.data_manipulation import train_test_split
+from c09_machinelearn.mlfromscratch.supervised_learning import BayesianRegression
 
 
 def main():
