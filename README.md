@@ -14,6 +14,8 @@ https://www.continuum.io/downloads
 *  pip install seaborn 
 *  pip install requests
 *  pip install lxml
+*  pip install xgboost
+*  pip install sklearn
 *  安装自己封装的算法库
   >     git clone https://github.com/eriklindernoren/ML-From-Scratch
   >     cd ML-From-Scratch
