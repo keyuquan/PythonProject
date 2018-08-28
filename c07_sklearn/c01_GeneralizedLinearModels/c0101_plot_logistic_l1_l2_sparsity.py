@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 """
-这个类对比 LogisticRegression 不同的C 值（正规化强度逆），对于 不同 惩罚（ l1 或 l2）  回归模型建立的效果
+这个类对比 LogisticRegression 不同的C 值（正规化强度逆），对于 不同 惩罚（ l1 或 l2）  建立 回归模型的效果
 """
 
 print(__doc__)
