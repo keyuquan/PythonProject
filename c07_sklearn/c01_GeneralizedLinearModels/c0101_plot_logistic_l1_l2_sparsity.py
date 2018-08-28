@@ -1,24 +1,11 @@
+#!/usr/bin/python
+# encoding: utf-8
+
 """
-==============================================
-L1 Penalty and Sparsity in Logistic Regression
-==============================================
-
-Comparison of the sparsity (percentage of zero coefficients) of solutions when
-L1 and L2 penalty are used for different values of C. We can see that large
-values of C give more freedom to the model.  Conversely, smaller values of C
-constrain the model more. In the L1 penalty case, this leads to sparser
-solutions.
-
-We classify 8x8 images of digits into two classes: 0-4 against 5-9.
-The visualization shows coefficients of the models for varying C.
+这个类对比 LogisticRegression 不同的C 值（正规化强度逆），对于 不同 惩罚（ l1 或 l2）  回归模型建立的效果
 """
 
 print(__doc__)
-
-# Authors: Alexandre Gramfort <alexandre.gramfort@inria.fr>
-#          Mathieu Blondel <mathieu@mblondel.org>
-#          Andreas Mueller <amueller@ais.uni-bonn.de>
-# License: BSD 3 clause
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,7 +24,17 @@ y = (y > 4).astype(np.int)
 
 # Set regularization parameter
 for i, C in enumerate((100, 1, 0.01)):
-    # turn down tolerance for short training time
+    #  i,C 的值  0,100 ; 1,1 ;  2,0 , 0.01 ;
+    """ 
+    C:正规化强度逆;必须是积极的浮动。较小的值指定更强正规化建设
+    penalty: 惩罚, l1 或 l2 ： L1一般用于特征的稀疏化（过滤掉不需要的特征），L2 一般用于防止过拟合。
+       密集向量和稀疏向量的区别：
+       密集向量的值就是一个普通的Double数组 而稀疏向量由两个并列的 数组indices和values组成
+       例如：向量(1.0,0.0,1.0,3.0)
+       用密集格式表示为[1.0,0.0,1.0,3.0]，
+       用稀疏格式表示为(4,[0,2,3],[1.0,1.0,3.0]) 第一个4表示向量的长度(元素个数)，[0,2,3]就是indices数组，[1.0,1.0,3.0]是values数组 表示向量0的位置的值是1.0，2的位置的值是1.0,而3的位置的值是3.0,其他的位置都是0
+    tol：容忍停止标准
+    """
     clf_l1_LR = LogisticRegression(C=C, penalty='l1', tol=0.01)
     clf_l2_LR = LogisticRegression(C=C, penalty='l2', tol=0.01)
     clf_l1_LR.fit(X, y)
