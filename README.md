@@ -44,8 +44,7 @@ https://www.continuum.io/downloads
 * c04_matpltlib       matpltlib 数据可视化库
 * c05_seaborn         seaborn 数据可视化库
 * c06_scripy          scripy 爬虫库
-* c06_sklearn         sklearn 科学计算库
+* c07-scikit-learn    sklearn 科学计算库官网案例
+* c07_machinelearn    csdn 上 mlfromscratch 科学计算库（只是用来了解原理，稳定性比sklearn差很多）
+* c07_sklearn         sklearn 科学计算库部分案列
 * c08_recommend       推荐系统
-* c09_machinelearn    机器学习相关算法
-  * examples          案例
-  * mlfromscratch     python机器学习和深度学习的算法代码
